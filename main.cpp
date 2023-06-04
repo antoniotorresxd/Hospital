@@ -1,5 +1,6 @@
 #include <iostream>
 #include <time.h>
+#include <typeinfo>
 using namespace std;
 
 #include "./clases/tipos_datos.cpp"

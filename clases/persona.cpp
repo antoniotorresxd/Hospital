@@ -26,16 +26,13 @@ class Persona{
 
 		// getter
 		string getNombre() {return Nombre;}
-	
+		string getApellidoPaterno() {return Apellido_Paterno;}
+		string getApellidoMaterno() {return Apellido_Materno;}
+		string getTelefono() {return Telefono;}
+		int getEdad() {return Edad;}
 };
 
 Persona :: Persona () {
-	Nombre = "";
-	Apellido_Paterno = "";
-	Apellido_Materno = "";
-	Telefono = "";
-	Genero = true;
-	Edad = 0;
 };
 
 Persona :: Persona (bool _create) {

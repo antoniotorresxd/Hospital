@@ -6,13 +6,13 @@ class Hospital : public Doctor, public Paciente {
         Direccion _Direccion;
         string _Telefono;
         // Doctor _Doctor[MAX_USER];
-        Paciente _Paciente[MAX_USER];
+        Paciente Arreglo_Paciente[MAX_USER];
     public:
         Hospital();
         string getHospital() { return _Nombre_Hospital; }
         void ver();
-
-        Paciente *ptr_paciente() { return _Paciente; }
+        void agregar_paciente(Paciente);
+        void mostrar_pacientes();
 };
 
 Hospital::Hospital(){
@@ -41,4 +41,17 @@ void Hospital::ver(){
     cout << "Sede: " << _Nombre_Hospital << endl;
     cout << "Telefono: " << _Telefono << endl;
     _Direccion.ver();
+};
+
+void Hospital::agregar_paciente(Paciente _obj) {
+
+    int position = Paciente::getPacientesTotales() -1;
+    Arreglo_Paciente[position] = _obj;
+    
+};
+
+void Hospital::mostrar_pacientes() {
+    for (int i = 0; i < Paciente::getPacientesTotales(); i++) {
+        // Arreglo_Paciente[i]->ver();
+    };
 };

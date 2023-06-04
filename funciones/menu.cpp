@@ -3,8 +3,7 @@ void menu() {
     Hospital *hospital;
     bool sede_create = false;
     int opt;
-    int length = 0;
-    int *ptr_length = &length;
+
 
     do {
 
@@ -28,11 +27,15 @@ void menu() {
             case 2:
                 Paciente *paciente;
                 paciente = new Paciente(true);
-                _crear_paciente(hospital->ptr_paciente(), ptr_length, *paciente );
+                hospital->agregar_paciente(*paciente);
             break;
 
             case 3:
                 Doctor *doctor;
+            break;
+
+            case 4:
+            hospital->mostrar_pacientes();
             break;
             
         };

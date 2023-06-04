@@ -14,7 +14,8 @@ class Paciente : private Persona {
         void mostar_pacientes();
 
         // getter
-        int get_Numero_Paciente() {return Numero_Paciente; }
+        int getNumero_Paciente() {return Numero_Paciente; }
+        int getPacientesTotales() {return pacientes_total; }
 
 };
 
@@ -28,8 +29,14 @@ Paciente::Paciente(){
 Paciente::Paciente(bool _create) {
     Numero_Paciente++;
     Persona *p = new Persona(true);
+    setNombre(p->getNombre());
+    setApellido_Paterno(p->getApellidoPaterno());
+    setApellido_Materno(p->getApellidoMaterno());
+    setTelefono(p->getTelefono());
+    setEdad(p->getEdad());
     cout << "Ingresa tipo de Sangre: ";
     cin >> Tipo_Sangre;
+    pacientes_total++;
 };
 
 void Paciente::mostar_pacientes() {
@@ -39,5 +46,5 @@ void Paciente::mostar_pacientes() {
 };
 
 void Paciente::ver() {
-    cout << "Nombre: " << getNombre() << endl;
+    cout << "Nombre: " << Persona::getNombre() << endl;
 };
