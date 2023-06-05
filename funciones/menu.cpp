@@ -4,6 +4,8 @@ void menu() {
     bool sede_create = false;
     int opt;
 
+    Paciente Array_Pacientes[10];
+    Paciente *ptr_array = Array_Pacientes;
 
     do {
 
@@ -27,7 +29,8 @@ void menu() {
             case 2:
                 Paciente *paciente;
                 paciente = new Paciente(true);
-                hospital->agregar_paciente(*paciente);
+                agregar_paciente(*paciente, ptr_array);
+                // agregar_paciente(*paciente, hospital->direccionArrayPaciente());
             break;
 
             case 3:
@@ -35,7 +38,7 @@ void menu() {
             break;
 
             case 4:
-            hospital->mostrar_pacientes();
+                mostar_pacientes(ptr_array);
             break;
             
         };

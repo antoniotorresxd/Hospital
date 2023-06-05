@@ -1,18 +1,23 @@
-#define MAX_USER 50
+const int MAX_USER = 50;
 
 class Hospital : public Doctor, public Paciente {
     private:
         string _Nombre_Hospital;
         Direccion _Direccion;
         string _Telefono;
-        // Doctor _Doctor[MAX_USER];
         Paciente Arreglo_Paciente[MAX_USER];
+        // Doctor _Doctor[MAX_USER];
     public:
+
         Hospital();
-        string getHospital() { return _Nombre_Hospital; }
         void ver();
-        void agregar_paciente(Paciente);
-        void mostrar_pacientes();
+        // void agregar_paciente(Paciente);
+        // void mostrar_pacientes();
+
+        Paciente *direccionArrayPaciente() {return Arreglo_Paciente;}
+
+        // getter
+        string getHospital() { return _Nombre_Hospital; }
 };
 
 Hospital::Hospital(){
@@ -43,15 +48,14 @@ void Hospital::ver(){
     _Direccion.ver();
 };
 
-void Hospital::agregar_paciente(Paciente _obj) {
+// void Hospital::agregar_paciente(Paciente _obj) {
+//     int position = Paciente::getPacientesTotales() -1;
+//     Paciente *ptr_array = Arreglo_Paciente;
+//     *(ptr_array + position) = _obj;
+// };
 
-    int position = Paciente::getPacientesTotales() -1;
-    Arreglo_Paciente[position] = _obj;
-    
-};
-
-void Hospital::mostrar_pacientes() {
-    for (int i = 0; i < Paciente::getPacientesTotales(); i++) {
-        // Arreglo_Paciente[i]->ver();
-    };
-};
+// void Hospital::mostrar_pacientes() {
+//     for (int i = 0; i < Paciente::getPacientesTotales(); i++) {
+//         Arreglo_Paciente[i].ver();
+//     };
+// };

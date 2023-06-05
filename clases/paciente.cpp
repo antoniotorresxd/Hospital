@@ -47,4 +47,6 @@ void Paciente::mostar_pacientes() {
 
 void Paciente::ver() {
     cout << "Nombre: " << Persona::getNombre() << endl;
+    cout << "Apellido: " << Persona::getApellidoPaterno() << endl;
+
 };
