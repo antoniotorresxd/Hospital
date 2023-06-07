@@ -17,6 +17,7 @@ class Hospital : public Doctor, public Paciente {
         // pacientes
         void agregar_paciente(Paciente);
         int buscar_paciente(int);
+        void eliminar_paciente(int);
         void mostrar_pacientes();
         void mostrar_pacientes(int);
 
@@ -73,10 +74,25 @@ void Hospital::agregar_paciente(Paciente _obj) {
     Arreglo_Paciente[position] = _obj;
 };
 
+void Hospital::eliminar_paciente(int _position) {
+    int count = 0;
+    for(int i=0; i<Paciente::getPacientesTotales(); i++) {
+        if (_position != i) {
+            Arreglo_Paciente[count] = Arreglo_Paciente[i];
+            count++;
+        };
+    };
+    if (_position >= 0) {
+        Paciente::set_PacienteTotal();
+    } else {
+        cout << "No existe el paciente." << endl;
+    };
+}   
+
 int Hospital::buscar_paciente(int _numero_paciente) {
     int position = -1;
     for (int i = 0; i < Paciente::getPacientesTotales(); i++) {
-        if (Arreglo_Paciente[i].getNumero_Paciente() == _numero_paciente){
+        if ((Arreglo_Paciente[i].getNumero_Paciente()) == _numero_paciente){
             position = i;
             break;
         }

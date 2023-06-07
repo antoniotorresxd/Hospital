@@ -2,6 +2,7 @@ bool unique = true;
 class Paciente : private Persona {
     private:
         static int pacientes_total;
+        static int id_paciente;
         int Numero_Paciente = 0;
         Fecha Fecha_Ingreso;
         Fecha Fecha_Salida;
@@ -12,13 +13,17 @@ class Paciente : private Persona {
         Paciente();
         Paciente(bool);
         void ver();
+
         // getter
         int getNumero_Paciente() {return Numero_Paciente; }
         int getPacientesTotales() {return pacientes_total; }
+        // setter
+        void set_PacienteTotal() {pacientes_total -= 1; }
 
 };
 
 int Paciente::pacientes_total = 0;
+int Paciente::id_paciente = 0;
 
 Paciente::Paciente(){};
 
@@ -32,7 +37,8 @@ Paciente::Paciente(bool _create) {
     cout << "Ingresa tipo de Sangre: ";
     cin >> Tipo_Sangre;
     pacientes_total++;
-    Numero_Paciente = pacientes_total;
+    id_paciente++;
+    Numero_Paciente = id_paciente;
 };
 
 void Paciente::ver() {
