@@ -73,7 +73,5 @@ Direccion::Direccion(bool _create){
 };
 
 void Direccion::ver(){
-	cout << "Calle: " << Calle << "," << Numero << endl;
-	cout << "Municipio: " << Municipio << endl;
-	cout << "Postal: " << Codigo_Postal << endl;
+	cout << Calle << "," << Numero << " " << Municipio << " " << Codigo_Postal << endl;
 };

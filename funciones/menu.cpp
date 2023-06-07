@@ -1,3 +1,36 @@
+void menu_paciente(Hospital *_hospital) {
+    clean();
+    int opt;
+    
+    do {
+        clean();
+        cout << "1.- Registrar Paciente" << endl;
+        cout << "2.- Mostrar pacientes" << endl;
+        cout << "3.- Buscar paciente" << endl;
+        cout << "0.- Menu inicial" << endl;
+        cout << "Ingresa una opcion: " << endl;
+        cin >> opt;
+        switch(opt) {
+
+            case 1:
+                Paciente *paciente;
+                paciente = new Paciente(true);
+                _hospital->agregar_paciente(*paciente);
+            break;
+
+            case 2:
+                _hospital->mostrar_pacientes();
+                cout << "\n";
+                system("pause");
+            break;
+
+            default:
+            break;
+
+        }
+    } while (opt != 0);
+}
+
 void menu() {
 
     Hospital *hospital;
@@ -9,9 +42,15 @@ void menu() {
 
     do {
 
+        clean();
+
         sede_create ? cout << "1.- Mostrar Sede" << endl : cout << "1.- Registrar Sede" << endl;
-        cout << "2.- Registrar Paciente" << endl;
-        cout << "3.- Registrar Doctor" << endl;
+
+        if (sede_create) {
+            cout << "2.- Modulo Paciente" << endl;
+            cout << "3.- Modulo Doctor" << endl;
+        }
+
         cout << "Ingrese una opcion: ";
         cin >> opt;
 
@@ -27,18 +66,13 @@ void menu() {
             break;
 
             case 2:
-                Paciente *paciente;
-                paciente = new Paciente(true);
-                agregar_paciente(*paciente, ptr_array);
-                // agregar_paciente(*paciente, hospital->direccionArrayPaciente());
+                menu_paciente(hospital);
             break;
 
             case 3:
-                Doctor *doctor;
             break;
 
             case 4:
-                mostar_pacientes(ptr_array);
             break;
             
         };

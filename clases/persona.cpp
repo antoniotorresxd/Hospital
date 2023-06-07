@@ -7,13 +7,14 @@ class Persona{
 		string Apellido_Paterno;
 		string Apellido_Materno;
 		string Telefono;
-		bool Genero;
+		bool Genero = true;
 		int Edad;
 		Fecha Nacimiento;
 		Direccion _Direccion;
 	public:
 		Persona();
 		Persona(bool);
+		void encabezados();
 		virtual void ver();
 
 		// setters
@@ -32,24 +33,53 @@ class Persona{
 		int getEdad() {return Edad;}
 };
 
-Persona :: Persona () {
-};
+Persona :: Persona () {};
 
 Persona :: Persona (bool _create) {
 	if (_create){
+		clean();
+		string genero;
 		cout << "Ingresa el nombre: ";
-		cin >> Nombre;
+		cin.ignore();
+		getline(cin, Nombre);
 		cout << "ingresa el Apellido paterno: ";
 		cin >> Apellido_Paterno;
 		cout << "Ingresa el Apellido Materno: ";
 		cin >> Apellido_Materno;
 		cout << "Ingresa el Telefono: ";
 		cin >> Telefono;
-		Genero = true;
-		Edad = 0;
-	}
+		cout << "Ingrese la edad: ";
+		cin >> Edad;
+		cout << "Ingrese el genero (M/H): ";
+		cin >> genero;
+		genero == "M" ? Genero = true : Genero = false;
+	};
+};
+
+void Persona::encabezados() {
+	cout 
+		<< std::setw(20) << "Nombre"
+		<< '|'
+		<< std::setw(20) << "Apellido Paterno"
+		<< '|'
+		<< std::setw(20) << "Apellido Materno"
+		<< '|'
+		<< std::setw(20) << "Telefono"
+		<< '|'
+		<< std::setw(20) << "Edad"
+		<< '|';
 };
 
 void Persona :: ver() {
-
-}
+	cout
+		<< std::setw(20) << Nombre
+		<< '|'
+		<< std::setw(20) << Apellido_Paterno
+		<< '|'
+		<< std::setw(20) << Apellido_Materno
+		<< '|'
+		<< std::setw(20) << Telefono
+		<< '|'
+		<< std::setw(20) << Edad
+		<< '|';
+};

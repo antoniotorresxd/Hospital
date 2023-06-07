@@ -1,3 +1,4 @@
+bool unique = true;
 class Paciente : private Persona {
     private:
         static int pacientes_total;
@@ -11,8 +12,6 @@ class Paciente : private Persona {
         Paciente();
         Paciente(bool);
         void ver();
-        void mostar_pacientes();
-
         // getter
         int getNumero_Paciente() {return Numero_Paciente; }
         int getPacientesTotales() {return pacientes_total; }
@@ -21,10 +20,7 @@ class Paciente : private Persona {
 
 int Paciente::pacientes_total = 0;
 
-Paciente::Paciente(){
-	Tipo_Sangre = "";
-	Enfermedad = "";
-};
+Paciente::Paciente(){};
 
 Paciente::Paciente(bool _create) {
     Numero_Paciente++;
@@ -39,14 +35,21 @@ Paciente::Paciente(bool _create) {
     pacientes_total++;
 };
 
-void Paciente::mostar_pacientes() {
-    for (int i = 0; i < pacientes_total; i++) {
-        cout << "Nombre: " << getNombre() << endl;
-    };
-};
-
 void Paciente::ver() {
-    cout << "Nombre: " << Persona::getNombre() << endl;
-    cout << "Apellido: " << Persona::getApellidoPaterno() << endl;
-
+    if (unique){
+        Persona::encabezados();
+        cout 
+            << std::setw(20) << "Tipo de Sangre"
+            << '|'
+            << std::setw(20) << "Enfermedad"
+            << '|';
+        unique = false;
+    };
+    cout << "\n";
+    Persona::ver();
+	cout
+		<< std::setw(20) << Tipo_Sangre
+		<< '|'
+		<< std::setw(20) << Enfermedad
+		<< '|';
 };

@@ -11,29 +11,33 @@ class Hospital : public Doctor, public Paciente {
 
         Hospital();
         void ver();
-        // void agregar_paciente(Paciente);
-        // void mostrar_pacientes();
 
-        Paciente *direccionArrayPaciente() {return Arreglo_Paciente;}
+        // pacientes
+        void agregar_paciente(Paciente);
+        void mostrar_pacientes();
 
         // getter
         string getHospital() { return _Nombre_Hospital; }
 };
 
 Hospital::Hospital(){
-    cout << "Ingrese la el nombre de la sede: ";
-    cin >> _Nombre_Hospital;
+    clean();
+    cin.ignore();
+    cout << "Ingrese el nombre de la sede: ";
+    getline(cin, _Nombre_Hospital);
     cout << "Ingrese el telefono: ";
     cin >> _Telefono;
     cout << "___Direccion___ " << endl;
     string calle, cp, municipio;
     int numero;
+    cin.ignore();
     cout << "Ingrese la calle: ";
-    cin >> calle;
+    getline(cin, calle);
     cout << "Ingrese el numero: ";
     cin >> numero;
+    cin.ignore();
     cout << "Ingrese el municipio: ";
-    cin >> municipio;
+    getline(cin, municipio);
     cout << "Ingrese el codigo postal: ";
     cin >> cp;
     _Direccion.setCalle(calle);
@@ -43,19 +47,33 @@ Hospital::Hospital(){
 };
 
 void Hospital::ver(){
-    cout << "Sede: " << _Nombre_Hospital << endl;
-    cout << "Telefono: " << _Telefono << endl;
-    _Direccion.ver();
+    clean();
+	cout 
+		<< std::setw(20) << "Sede"
+		<< '|'
+		<< std::setw(20) << "Telefono"
+		<< '|'
+		<< std::setw(15) << "Direccion" << std::setw(20)
+		<< '|';
+        cout << "\n";
+    cout
+		<< std::setw(20) << _Nombre_Hospital
+		<< '|'
+		<< std::setw(20) << _Telefono
+		<< '|'
+        << std::setw(10); _Direccion.ver();
+		cout << '|';
+    system("pause");
 };
 
-// void Hospital::agregar_paciente(Paciente _obj) {
-//     int position = Paciente::getPacientesTotales() -1;
-//     Paciente *ptr_array = Arreglo_Paciente;
-//     *(ptr_array + position) = _obj;
-// };
+void Hospital::agregar_paciente(Paciente _obj) {
+    int position = _obj.getPacientesTotales() -1;
+    Arreglo_Paciente[position] = _obj;
+};
 
-// void Hospital::mostrar_pacientes() {
-//     for (int i = 0; i < Paciente::getPacientesTotales(); i++) {
-//         Arreglo_Paciente[i].ver();
-//     };
-// };
+void Hospital::mostrar_pacientes() {
+    for (int i = 0; i < Paciente::getPacientesTotales(); i++) {
+        Arreglo_Paciente[i].ver();
+    };
+    unique = true;
+};
