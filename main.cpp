@@ -23,7 +23,6 @@ void clean() {
 #include "./clases/usuarios.cpp"
 #include "./clases/hospital.cpp"
 
-#include "./funciones/crud.cpp"
 #include "./funciones/menu.cpp"
 
 main () {
