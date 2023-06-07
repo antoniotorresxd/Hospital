@@ -24,21 +24,27 @@ void menu_paciente(Hospital *_hospital) {
                 system("pause");
             break;
 
+            case 3:
+                int num_paciente;
+                cout << "Ingrese el codigo del paciente: ";
+                cin >> num_paciente;
+                _hospital->mostrar_pacientes(_hospital->buscar_paciente(num_paciente));
+                cout << "\n";
+                system("pause");
+            break;
+
             default:
             break;
 
         }
     } while (opt != 0);
-}
+};
 
 void menu() {
 
     Hospital *hospital;
     bool sede_create = false;
     int opt;
-
-    Paciente Array_Pacientes[10];
-    Paciente *ptr_array = Array_Pacientes;
 
     do {
 

@@ -6,18 +6,20 @@ class Hospital : public Doctor, public Paciente {
         Direccion _Direccion;
         string _Telefono;
         Paciente Arreglo_Paciente[MAX_USER];
-        // Doctor _Doctor[MAX_USER];
+        Doctor _Doctor[MAX_USER];
     public:
-
         Hospital();
         void ver();
 
-        // pacientes
-        void agregar_paciente(Paciente);
-        void mostrar_pacientes();
-
         // getter
         string getHospital() { return _Nombre_Hospital; }
+
+        // pacientes
+        void agregar_paciente(Paciente);
+        int buscar_paciente(int);
+        void mostrar_pacientes();
+        void mostrar_pacientes(int);
+
 };
 
 Hospital::Hospital(){
@@ -71,9 +73,31 @@ void Hospital::agregar_paciente(Paciente _obj) {
     Arreglo_Paciente[position] = _obj;
 };
 
+int Hospital::buscar_paciente(int _numero_paciente) {
+    int position = -1;
+    for (int i = 0; i < Paciente::getPacientesTotales(); i++) {
+        if (Arreglo_Paciente[i].getNumero_Paciente() == _numero_paciente){
+            position = i;
+            break;
+        }
+    };
+    return position;
+}
+
 void Hospital::mostrar_pacientes() {
+    clean();
     for (int i = 0; i < Paciente::getPacientesTotales(); i++) {
         Arreglo_Paciente[i].ver();
     };
     unique = true;
+};
+
+void Hospital::mostrar_pacientes(int position) {
+    clean();
+    if (position != -1) {
+        Arreglo_Paciente[position].ver();
+        unique = true;
+    } else {
+        cout << "No existe el paciente " << endl;
+    };
 };

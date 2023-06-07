@@ -23,7 +23,6 @@ int Paciente::pacientes_total = 0;
 Paciente::Paciente(){};
 
 Paciente::Paciente(bool _create) {
-    Numero_Paciente++;
     Persona *p = new Persona(true);
     setNombre(p->getNombre());
     setApellido_Paterno(p->getApellidoPaterno());
@@ -33,10 +32,13 @@ Paciente::Paciente(bool _create) {
     cout << "Ingresa tipo de Sangre: ";
     cin >> Tipo_Sangre;
     pacientes_total++;
+    Numero_Paciente = pacientes_total;
 };
 
 void Paciente::ver() {
     if (unique){
+        cout << std::setw(20) << "Numero Paciente"
+        << '|';
         Persona::encabezados();
         cout 
             << std::setw(20) << "Tipo de Sangre"
@@ -46,6 +48,9 @@ void Paciente::ver() {
         unique = false;
     };
     cout << "\n";
+	cout
+		<< std::setw(20) << Numero_Paciente
+		<< '|';
     Persona::ver();
 	cout
 		<< std::setw(20) << Tipo_Sangre
@@ -53,3 +58,5 @@ void Paciente::ver() {
 		<< std::setw(20) << Enfermedad
 		<< '|';
 };
+
+
