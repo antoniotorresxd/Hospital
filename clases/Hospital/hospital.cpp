@@ -12,13 +12,16 @@ class Hospital : public Doctor, public Paciente {
         void ver();
 
         // pacientes
+        Paciente *getPaciente(int);
         void agregar_paciente(Paciente);
         int buscar_paciente(int);
         void eliminar_paciente(int);
         void mostrar_pacientes();
         void mostrar_pacientes(int);
+        void asignar_doctor(Doctor*, Paciente*);
 
         // doctores
+        Doctor *getDoctor(int);
         void agregar_doctor(Doctor);
         int buscar_doctor(int);
         void eliminar_doctor(int);
@@ -60,7 +63,7 @@ void Hospital::ver(){
 		<< '|'
 		<< std::setw(20) << "Telefono"
 		<< '|'
-		<< std::setw(15) << "Direccion" << std::setw(20)
+		<< std::setw(15) << "Direccion" << std::setw(30)
 		<< '|';
         cout << "\n";
     cout
@@ -74,6 +77,11 @@ void Hospital::ver(){
 };
 
 // pacientes
+
+Paciente *Hospital::getPaciente(int _num_paciente) {
+    int position = buscar_paciente(_num_paciente);
+    return &Arreglo_Paciente[position];
+}
 
 void Hospital::agregar_paciente(Paciente _obj) {
     int position = _obj.getPacientesTotales() -1;
@@ -124,7 +132,18 @@ void Hospital::mostrar_pacientes(int position) {
     };
 };
 
+void Hospital::asignar_doctor(Doctor *_doctor, Paciente *_paciente) {
+    int posicion_paciente = buscar_paciente(_paciente->getNumero_Paciente());
+    int posicion_doctor = buscar_doctor(_doctor->getNumero_Doctor());
+    Arreglo_Paciente[posicion_paciente].set_DoctorAsigando(_doctor->getNumero_Doctor());
+};
+
 // doctores
+
+Doctor *Hospital::getDoctor(int _num_doctor) {
+    int position = buscar_doctor(_num_doctor);
+    return &Arreglo_Doctor[position];
+}
 
 void Hospital::agregar_doctor(Doctor _obj) {
     int position = _obj.getDoctoresTotales() -1;

@@ -4,7 +4,7 @@ class Persona{
 		string Apellido_Paterno;
 		string Apellido_Materno;
 		string Telefono;
-		bool Genero = true;
+		string Genero;
 		int Edad;
 		Fecha Nacimiento;
 		Direccion _Direccion;
@@ -19,7 +19,7 @@ class Persona{
 		void setApellido_Paterno(string _apellido) { Apellido_Paterno = _apellido;}
 		void setApellido_Materno(string _apellido) { Apellido_Materno = _apellido;}
 		void setTelefono(string _telefono) { Telefono = _telefono;}
-		void setGenero(bool _genero) { Genero = _genero;}
+		void setGenero(string _genero) { Genero = _genero;}
 		void setEdad(int _edad) { Edad = _edad;}
 
 		// getter
@@ -27,6 +27,7 @@ class Persona{
 		string getApellidoPaterno() {return Apellido_Paterno;}
 		string getApellidoMaterno() {return Apellido_Materno;}
 		string getTelefono() {return Telefono;}
+		string getGenero() {return Genero;}
 		int getEdad() {return Edad;}
 };
 
@@ -35,7 +36,6 @@ Persona :: Persona () {};
 Persona :: Persona (bool _create) {
 	if (_create){
 		clean();
-		string genero;
 		cout << "Ingresa el nombre: ";
 		cin.ignore();
 		getline(cin, Nombre);
@@ -47,36 +47,33 @@ Persona :: Persona (bool _create) {
 		cin >> Telefono;
 		cout << "Ingrese la edad: ";
 		cin >> Edad;
-		cout << "Ingrese el genero (M/H): ";
-		cin >> genero;
-		genero == "M" ? Genero = true : Genero = false;
+		cout << "Ingrese el genero (Mujer/Hombre): ";
+		cin >> Genero;
 	};
 };
 
 void Persona::encabezados() {
 	cout 
-		<< std::setw(20) << "Nombre"
+		<< std::setw(40) << "Nombre"
 		<< '|'
-		<< std::setw(20) << "Apellido Paterno"
+		<< std::setw(10) << "Telefono"
 		<< '|'
-		<< std::setw(20) << "Apellido Materno"
+		<< std::setw(5) << "Edad"
 		<< '|'
-		<< std::setw(20) << "Telefono"
-		<< '|'
-		<< std::setw(20) << "Edad"
+		<< std::setw(10) << "Sexo"
 		<< '|';
 };
 
 void Persona :: ver() {
+	string name = Apellido_Paterno + " " + Apellido_Materno + " " + Nombre;
 	cout
-		<< std::setw(20) << Nombre
+		<< std::setw(40) << name
 		<< '|'
-		<< std::setw(20) << Apellido_Paterno
+		<< std::setw(10) << Telefono
 		<< '|'
-		<< std::setw(20) << Apellido_Materno
+		<< std::setw(5) << Edad
 		<< '|'
-		<< std::setw(20) << Telefono
-		<< '|'
-		<< std::setw(20) << Edad
+		<< std::setw(10) << Genero
 		<< '|';
 };
+

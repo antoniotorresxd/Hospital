@@ -10,12 +10,12 @@ class Doctor : private Persona {
         Doctor();
         Doctor(bool);
         void ver();
-
         // getter
         int getNumero_Doctor() {return Numero_Doctor; }
         int getDoctoresTotales() {return doctor_total; }
         // setter
         void set_DoctorTotal() {doctor_total -= 1; }
+        void setEspecialidad(string _especialidad) {Especialidad = _especialidad;}
 };
 
 int Doctor::doctor_total = 0;
@@ -30,6 +30,7 @@ Doctor::Doctor(bool _create){
     setApellido_Materno(p->getApellidoMaterno());
     setTelefono(p->getTelefono());
     setEdad(p->getEdad());
+    setGenero(p->getGenero());
     cout << "Ingresa la especialidad: ";
     cin >> Especialidad;
     doctor_total++;
