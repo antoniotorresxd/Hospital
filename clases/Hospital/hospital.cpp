@@ -135,7 +135,9 @@ void Hospital::mostrar_pacientes(int position) {
 void Hospital::asignar_doctor(Doctor *_doctor, Paciente *_paciente) {
     int posicion_paciente = buscar_paciente(_paciente->getNumero_Paciente());
     int posicion_doctor = buscar_doctor(_doctor->getNumero_Doctor());
-    Arreglo_Paciente[posicion_paciente].set_DoctorAsigando(_doctor->getNumero_Doctor());
+    
+    Arreglo_Paciente[posicion_paciente].set_DoctorAsigando(*_doctor); 
+
 };
 
 // doctores

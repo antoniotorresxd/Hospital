@@ -7,14 +7,12 @@ class Paciente : private Persona {
         Fecha Fecha_Salida;
         string Tipo_Sangre;
         string Enfermedad;
-        int doctor_asignado;
+        Doctor doctor_asignado;
         bool admin = false;
     public:
         Paciente();
         Paciente(bool);
         void ver();
-
-        void asignar_doctor(Doctor*);
 
         // getter
         int getNumero_Paciente() {return Numero_Paciente; }
@@ -22,6 +20,8 @@ class Paciente : private Persona {
         // setter
         void set_PacienteTotal() {pacientes_total -= 1; }
         void set_DoctorAsigando(int _num_doct) {doctor_asignado = _num_doct; }
+        void set_DoctorAsigando(Doctor _num_doct) {doctor_asignado = _num_doct; }
+
 
 };
 
@@ -43,7 +43,6 @@ Paciente::Paciente(bool _create) {
     pacientes_total++;
     id_paciente++;
     Numero_Paciente = id_paciente;
-    doctor_asignado = 0;
 };
 
 void Paciente::ver() {
@@ -70,6 +69,6 @@ void Paciente::ver() {
 		<< '|'
 		<< std::setw(20) << Enfermedad
 		<< '|'
-		<< std::setw(20) << doctor_asignado
+		<< std::setw(20) << doctor_asignado.getName()
 		<< '|';
 };

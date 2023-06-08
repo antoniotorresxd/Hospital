@@ -13,6 +13,7 @@ class Doctor : private Persona {
         // getter
         int getNumero_Doctor() {return Numero_Doctor; }
         int getDoctoresTotales() {return doctor_total; }
+        string getName() {return (getApellidoPaterno() + " " + getApellidoMaterno() + " " + getNombre()); }
         // setter
         void set_DoctorTotal() {doctor_total -= 1; }
         void setEspecialidad(string _especialidad) {Especialidad = _especialidad;}

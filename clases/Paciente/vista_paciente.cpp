@@ -46,9 +46,9 @@ void menu_paciente(Hospital *_hospital) {
             break;
 
             case 5:
-                cout << "Ingresa el codigo del paciente :";
+                cout << "Ingresa el codigo del paciente: ";
                 cin >> num_paciente;
-                cout << "Ingresa el codigo del doctor :";
+                cout << "Ingresa el codigo del doctor: ";
                 cin >> num_doctor;
                 _hospital->asignar_doctor(_hospital->getDoctor(num_doctor),_hospital->getPaciente(num_paciente));
                 system("pause");
