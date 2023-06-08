@@ -11,7 +11,7 @@ void menu_paciente(Hospital *_hospital) {
         cout << "2.- Mostrar pacientes" << endl;
         cout << "3.- Buscar paciente" << endl;
         cout << "4.- Eliminar paciente" << endl;
-        if (p->getPacientesTotales() > 0) {
+        if (_hospital->getTotalPacientes() > 0 && _hospital->getTotalDoctores() > 0) {
             cout << "5.- Asignar doctor" << endl;
         }
         

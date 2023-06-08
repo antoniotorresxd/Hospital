@@ -19,6 +19,7 @@ class Hospital : public Doctor, public Paciente {
         void mostrar_pacientes();
         void mostrar_pacientes(int);
         void asignar_doctor(Doctor*, Paciente*);
+        int getTotalPacientes() {return getPacientesTotales();}
 
         // doctores
         Doctor *getDoctor(int);
@@ -28,6 +29,7 @@ class Hospital : public Doctor, public Paciente {
         void mostrar_doctor();
         void mostrar_doctor(int);
         void asignar_enfermedad(Paciente*);
+        int getTotalDoctores() {return getDoctoresTotales();}
 
 };
 

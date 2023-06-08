@@ -3,14 +3,14 @@ void menu_doctor(Hospital *_hospital) {
     int opt;
     int num_doctor;
     int num_paciente;
-    Doctor *d;
+
      do {
         clean();
         cout << "1.- Registrar Doctor" << endl;
         cout << "2.- Mostrar doctores" << endl;
         cout << "3.- Buscar doctor" << endl;
         cout << "4.- Eliminar doctor" << endl;
-        if (d->getDoctoresTotales() > 0) {
+        if (_hospital->getTotalPacientes() > 0 && _hospital->getTotalDoctores() > 0) {
             cout << "5.- Editar Enfermedad" << endl;
         }
         cout << "0.- Menu inicial" << endl;
