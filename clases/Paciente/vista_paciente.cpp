@@ -3,7 +3,7 @@ void menu_paciente(Hospital *_hospital) {
     int opt;
     int num_paciente;
     int num_doctor;
-
+    Paciente *p;
     
     do {
         clean();
@@ -11,7 +11,10 @@ void menu_paciente(Hospital *_hospital) {
         cout << "2.- Mostrar pacientes" << endl;
         cout << "3.- Buscar paciente" << endl;
         cout << "4.- Eliminar paciente" << endl;
-        cout << "5.- Asignar doctor" << endl;
+        if (p->getPacientesTotales() > 0) {
+            cout << "5.- Asignar doctor" << endl;
+        }
+        
         cout << "0.- Menu inicial" << endl;
         cout << "Ingresa una opcion: ";
         cin >> opt;
