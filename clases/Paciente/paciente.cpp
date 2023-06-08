@@ -21,6 +21,7 @@ class Paciente : private Persona {
         void set_PacienteTotal() {pacientes_total -= 1; }
         void set_DoctorAsigando(int _num_doct) {doctor_asignado = _num_doct; }
         void set_DoctorAsigando(Doctor _num_doct) {doctor_asignado = _num_doct; }
+        void set_Enfermedad(string _enfermedad) {Enfermedad = _enfermedad;}
 
 
 };

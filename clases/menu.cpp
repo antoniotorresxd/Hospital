@@ -43,7 +43,7 @@ void menu() {
                 menu_doctor(hospital);
             break;
 
-            case 4:
+            default:
             break;
             
         };

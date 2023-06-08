@@ -27,6 +27,7 @@ class Hospital : public Doctor, public Paciente {
         void eliminar_doctor(int);
         void mostrar_doctor();
         void mostrar_doctor(int);
+        void asignar_enfermedad(Paciente*);
 
 };
 
@@ -133,9 +134,7 @@ void Hospital::mostrar_pacientes(int position) {
 };
 
 void Hospital::asignar_doctor(Doctor *_doctor, Paciente *_paciente) {
-    int posicion_paciente = buscar_paciente(_paciente->getNumero_Paciente());
-    int posicion_doctor = buscar_doctor(_doctor->getNumero_Doctor());
-    
+    int posicion_paciente = buscar_paciente(_paciente->getNumero_Paciente());    
     Arreglo_Paciente[posicion_paciente].set_DoctorAsigando(*_doctor); 
 
 };
@@ -195,3 +194,11 @@ void Hospital::mostrar_doctor(int position) {
         cout << "No existe el doctor " << endl;
     };
 };
+
+void Hospital::asignar_enfermedad(Paciente* _paciente) {
+    string _enfermedad;
+    cout << "Ingrese la enfermedad: ";
+    cin >> _enfermedad;
+    int posicion_paciente = buscar_paciente(_paciente->getNumero_Paciente()); 
+    Arreglo_Paciente[posicion_paciente].set_Enfermedad(_enfermedad); 
+}

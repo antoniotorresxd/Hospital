@@ -2,6 +2,7 @@ void menu_doctor(Hospital *_hospital) {
     clean();
     int opt;
     int num_doctor;
+    int num_paciente;
 
      do {
         clean();
@@ -9,6 +10,7 @@ void menu_doctor(Hospital *_hospital) {
         cout << "2.- Mostrar doctores" << endl;
         cout << "3.- Buscar doctor" << endl;
         cout << "4.- Eliminar doctor" << endl;
+        cout << "5.- Editar Enfermedad" << endl;
         cout << "0.- Menu inicial" << endl;
         cout << "Ingresa una opcion: ";
         cin >> opt;
@@ -40,6 +42,12 @@ void menu_doctor(Hospital *_hospital) {
                 _hospital->eliminar_doctor(_hospital->buscar_doctor(num_doctor));
                 cout << "\n";
                 system("pause");
+            break;
+
+            case 5:
+                cout << "Ingresa el codigo del paciente: ";
+                cin >> num_paciente;
+                _hospital->asignar_enfermedad(_hospital->getPaciente(num_paciente));
             break;
 
             default:
