@@ -16,14 +16,14 @@ void clean() {
   #endif
 }
 
-#include "./clases/tipos_datos.cpp"
-#include "./clases/persona.cpp"
-#include "./clases/doctor.cpp"
-#include "./clases/paciente.cpp"
-#include "./clases/usuarios.cpp"
-#include "./clases/hospital.cpp"
+bool unique = true;
 
-#include "./funciones/menu.cpp"
+#include "./clases/Base/tipos_datos.cpp"
+#include "./clases/Base/persona.cpp"
+#include "./clases/Doctor/doctor.cpp"
+#include "./clases/Paciente/paciente.cpp"
+#include "./clases/Hospital/hospital.cpp"
+#include "./clases/menu.cpp"
 
 main () {
     menu();

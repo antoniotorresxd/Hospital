@@ -1,4 +1,3 @@
-bool unique = true;
 class Paciente : private Persona {
     private:
         static int pacientes_total;

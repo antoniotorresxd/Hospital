@@ -6,7 +6,7 @@ class Hospital : public Doctor, public Paciente {
         Direccion _Direccion;
         string _Telefono;
         Paciente Arreglo_Paciente[MAX_USER];
-        Doctor _Doctor[MAX_USER];
+        Doctor Arreglo_Doctor[MAX_USER];
     public:
         Hospital();
         void ver();
@@ -19,7 +19,11 @@ class Hospital : public Doctor, public Paciente {
         void mostrar_pacientes(int);
 
         // doctores
-
+        void agregar_doctor(Doctor);
+        int buscar_doctor(int);
+        void eliminar_doctor(int);
+        void mostrar_doctor();
+        void mostrar_doctor(int);
 
 };
 
@@ -69,6 +73,8 @@ void Hospital::ver(){
     system("pause");
 };
 
+// pacientes
+
 void Hospital::agregar_paciente(Paciente _obj) {
     int position = _obj.getPacientesTotales() -1;
     Arreglo_Paciente[position] = _obj;
@@ -115,5 +121,56 @@ void Hospital::mostrar_pacientes(int position) {
         unique = true;
     } else {
         cout << "No existe el paciente " << endl;
+    };
+};
+
+// doctores
+
+void Hospital::agregar_doctor(Doctor _obj) {
+    int position = _obj.getDoctoresTotales() -1;
+    Arreglo_Doctor[position] = _obj;
+};
+
+int Hospital::buscar_doctor(int _numero_doctor) {
+    int position = -1;
+    for (int i = 0; i < Doctor::getDoctoresTotales(); i++) {
+        if ((Arreglo_Doctor[i].getNumero_Doctor()) == _numero_doctor){
+            position = i;
+            break;
+        }
+    };
+    return position;
+};
+
+void Hospital::eliminar_doctor(int _position) {
+    int count = 0;
+    for(int i=0; i<Doctor::getDoctoresTotales(); i++) {
+        if (_position != i) {
+            Arreglo_Doctor[count] = Arreglo_Doctor[i];
+            count++;
+        };
+    };
+    if (_position >= 0) {
+        Doctor::set_DoctorTotal();
+    } else {
+        cout << "No existe el doctor." << endl;
+    };
+};
+
+void Hospital::mostrar_doctor() {
+    clean();
+    for (int i = 0; i < Doctor::getDoctoresTotales(); i++) {
+        Arreglo_Doctor[i].ver();
+    };
+    unique = true;
+};
+
+void Hospital::mostrar_doctor(int position) {
+    clean();
+    if (position != -1) {
+        Arreglo_Doctor[position].ver();
+        unique = true;
+    } else {
+        cout << "No existe el doctor " << endl;
     };
 };
