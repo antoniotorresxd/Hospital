@@ -23,7 +23,6 @@ bool unique = true;
 #include "./clases/Doctor/doctor.cpp"
 #include "./clases/Paciente/paciente.cpp"
 #include "./clases/Hospital/hospital.cpp"
-#include "./clases/Usuarios/usuarios.cpp"
 #include "./clases/menu.cpp"
 
 

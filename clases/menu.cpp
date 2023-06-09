@@ -1,12 +1,8 @@
-#include "./Usuarios/vista_usuarios.cpp"
 #include "./Paciente/vista_paciente.cpp"
 #include "./Doctor/vista_doctor.cpp"
 
 
 void menu() {
-
-    Usuario arreglo_usuarios[100];
-    // Usuario *ptr = arreglo_usuarios;
 
     Hospital *hospital;
     bool sede_create = false;
@@ -17,16 +13,12 @@ void menu() {
 
         clean();
     
-        if(!user_create) {
-            user_create = true;
-            menu_usuarios();
-        }
         clean();
         if (sede_create) {
             cout << "1.- Mostrar Sede" << endl;
         } else {
             cout << "1.- Registrar Sede" << endl;
-            cout << "2.- Modulo usuario " << endl;
+            // cout << "2.- Modulo usuario " << endl;
         }
 
 
