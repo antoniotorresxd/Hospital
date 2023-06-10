@@ -13,16 +13,13 @@ class Paciente : private Persona {
         Paciente();
         Paciente(bool);
         void ver();
-
         // getter
         int getNumero_Paciente() {return Numero_Paciente; }
         int getPacientesTotales() {return pacientes_total; }
         // setter
         void set_PacienteTotal() {pacientes_total -= 1; }
         void set_DoctorAsigando(Doctor _num_doct) {doctor_asignado = _num_doct; }
-        void set_Enfermedad(string _enfermedad) {Enfermedad = _enfermedad;}
-
-
+        void set_Enfermedad(string _enfermedad) {Enfermedad = _enfermedad; }
 };
 
 int Paciente::pacientes_total = 0;

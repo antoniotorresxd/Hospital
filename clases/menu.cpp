@@ -6,27 +6,24 @@ void menu() {
 
     Hospital *hospital;
     bool sede_create = false;
-    bool user_create = false;
     int opt;
 
     do {
 
         clean();
     
-        clean();
         if (sede_create) {
             cout << "1.- Mostrar Sede" << endl;
         } else {
             cout << "1.- Registrar Sede" << endl;
-        }
+        };
 
 
         if (sede_create) {
             cout << "2.- Modulo Paciente" << endl;
             cout << "3.- Modulo Doctor" << endl;
             cout << "0.- Salir" << endl;
-
-        }
+        };
 
         cout << "Ingrese una opcion: ";
         cin >> opt;
@@ -39,7 +36,7 @@ void menu() {
                     sede_create = true;
                 } else {
                     hospital->ver();
-                }
+                };
             break;
 
             case 2:

@@ -1,9 +1,10 @@
 void menu_paciente(Hospital *_hospital) {
+
     clean();
+    
     int opt;
     int num_paciente;
     int num_doctor;
-    Paciente *p;
     
     do {
         clean();

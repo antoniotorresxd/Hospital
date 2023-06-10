@@ -13,7 +13,6 @@ class Persona{
 		Persona(bool);
 		void encabezados();
 		virtual void ver();
-
 		// setters
 		void setNombre(string _nombre) { Nombre = _nombre; }
 		void setApellido_Paterno(string _apellido) { Apellido_Paterno = _apellido;}
@@ -21,7 +20,6 @@ class Persona{
 		void setTelefono(string _telefono) { Telefono = _telefono;}
 		void setGenero(string _genero) { Genero = _genero;}
 		void setEdad(int _edad) { Edad = _edad;}
-
 		// getter
 		string getNombre() {return Nombre;}
 		string getApellidoPaterno() {return Apellido_Paterno;}

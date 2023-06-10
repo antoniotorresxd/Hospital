@@ -1,4 +1,5 @@
 void menu_doctor(Hospital *_hospital) {
+    
     clean();
     int opt;
     int num_doctor;
