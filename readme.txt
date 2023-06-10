@@ -1,5 +1,11 @@
 Hospital V.1.0.1
 
+- Integrantes
+    + Castro Torres Diego
+    + Guevara Martínez Jorgue Luis
+    + López Jiménez Angelica Estefanía
+    + Torres Martínez Antonio de Jesus
+
 - Alcance del proyeto 
     El software promete tener un registro de pacientes y usuario, afiliados a una sede en especifico.
 
