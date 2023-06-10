@@ -42,7 +42,6 @@ class Direccion{
 	public:
 		Direccion();
 		Direccion(bool);
-		Direccion(string,int,string,string);
 		void ver();
 
 		// setter

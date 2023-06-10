@@ -18,14 +18,12 @@ void menu() {
             cout << "1.- Mostrar Sede" << endl;
         } else {
             cout << "1.- Registrar Sede" << endl;
-            // cout << "2.- Modulo usuario " << endl;
         }
 
 
         if (sede_create) {
             cout << "2.- Modulo Paciente" << endl;
             cout << "3.- Modulo Doctor" << endl;
-            cout << "4.- Modulo usuario " << endl;
             cout << "0.- Salir" << endl;
 
         }
